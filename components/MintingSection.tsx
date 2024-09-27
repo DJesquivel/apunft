@@ -37,9 +37,9 @@ export default function MintingSection() {
   const [totalSup, setTotalSupp] = useState<string>("");
   const [isMinting, setIsMinting] = useState<boolean>(false);
 
-  //   const contractAddress = "0x94cCA1Db6881ed4666483b5CA3e349D254d3f287";
-  const contractAddress = "0x0D4990aAbE3aE35524c311AC0b1571d0485F1d27";
-  const collUrl = `https://testnets.opensea.io/collection/testto-2`;
+  //   const contractAddress = "";
+  const contractAddress = "";
+  const collUrl = ``;
 
   // const mintFunc = async () => {
   //   setIsMinting(true);
@@ -119,27 +119,30 @@ export default function MintingSection() {
         className="absolute right-[1%] top-[10%]"
       />
       <div className="container mx-auto mt-20 max-md:mt-10 max-w-[900px] min-w-[900px] relative max-lg:max-w-full max-lg:min-w-full px-4">
-        <div className="flex justify-between gap-4 relative z-10 max-sm:flex-col">
+        <div className="flex justify-between gap-4 relative z-10 max-sm:flex-col text-center sm:text-left">
           <div className="">
-            <p className="uppercase single-day-regular text-[48px] text-white max-sm:text-center text-center sm:text-left">
+            <p className="uppercase single-day-regular text-[48px] text-white max-sm:text-center">
               Early Access Mint
             </p>
             <div className="flex gap-4 max-sm:flex-col">
               <div className="max-sm:items-center max-sm:flex max-sm:flex-col">
-                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
+                <p className="text-[30px] single-day-regular text-white">
                   Date: Saturday 10/05
                 </p>
-                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
-                  Time: 12pm est
+                <p className="text-[30px] single-day-regular text-white">
+                  Time: 12:00 PM EST
                 </p>
-                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
-                  Price: .05e
+                <p className="text-[30px] single-day-regular text-white">
+                  Price: .05e (ETH gas fees apply)
                 </p>
-                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
+                <p className="text-[30px] single-day-regular text-white">
                   Max per mint: 10
                 </p>
-                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
+                <p className="text-[30px] single-day-regular text-white">
                   No max per wallet
+                </p>
+                <p className="text-[30px] single-day-regular text-white">
+                  Duration: 33 Hours
                 </p>
               </div>
               {/* <div className="max-w-[200px] max-sm:items-center max-sm:flex max-sm:flex-col max-sm:max-w-full">
@@ -154,24 +157,24 @@ export default function MintingSection() {
           <div className="w-[1px] bg-white shadow-lg max-sm:hidden"></div>
 
           <div className="max-sm:items-center max-sm:flex max-sm:flex-col">
-            <p className="uppercase single-day-regular text-[48px] text-white text-center sm:text-left">
+            <p className="uppercase single-day-regular text-[48px] text-white">
               Public Mint
             </p>
             <div>
               <div className="max-sm:items-center max-sm:flex max-sm:flex-col">
-                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
+                <p className="text-[30px] single-day-regular text-white">
                   Date: Sunday 10/06
                 </p>
-                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
-                  Time: 9pm est
+                <p className="text-[30px] single-day-regular text-white">
+                  Time: 9:00 PM EST
                 </p>
-                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
-                  Price: .10e
+                <p className="text-[30px] single-day-regular text-white">
+                  Price: .10e (ETH gas fees apply)
                 </p>
-                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
+                <p className="text-[30px] single-day-regular text-white">
                   Max per mint: 10
                 </p>
-                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
+                <p className="text-[30px] single-day-regular text-white">
                   No max per wallet
                 </p>
               </div>
@@ -258,10 +261,11 @@ export default function MintingSection() {
               >
                 {isMinting ? "Minting..." : "Mint"}
               </button>
-            )} */}
+            )}  */}
+
           </div>
         </div>
-        {/* <div className="h-[1px] bg-white w-full my-6"></div> */}
+        <div className="h-[1px] bg-white w-full my-6"></div>
       </div>
     </div>
   );
