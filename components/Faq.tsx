@@ -139,7 +139,7 @@ export default function Faq() {
                   alt=""
                   width={60}
                   height={60}
-                  className={`h-[60px] w-[60px] transition-transform duration-300 ease-in-out ${
+                  className={` transition-transform duration-300 ease-in-out flex-shrink-0 h-[40px] sm:h-[60px] w-[50px] sm:w-[85px] ${
                     isOpen[`answer-${index + 1}`] ? "rotate-180" : ""
                   }`}
                 />

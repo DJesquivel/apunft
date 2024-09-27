@@ -11,17 +11,21 @@ export default function TitleSection() {
         </div>
         <Image
           src={"/images/titlebg.png"}
-          alt=""
+          alt="Background"
           width={1000}
           height={300}
           className="!w-full"
+          unoptimized={true}
+          priority={true}
         />
         <Image
           src={"/images/logo.png"}
-          alt=""
+          alt="Logo"
           width={700}
           height={300}
-          className="max-w-[700] absolute top-[20%] left-1/2 -translate-x-1/2 max-xl:w-[400px] max-sm:w-[200px]"
+          className="max-w-[700px] absolute top-[20%] left-[35%] -translate-x-1/2 max-xl:w-[400px] max-sm:w-[200px]"
+          unoptimized={true}
+          priority={true}
         />
       </div>
     </div>

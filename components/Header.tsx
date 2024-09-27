@@ -12,6 +12,12 @@ export default function Header() {
       >
         {isConnected ? "Connected" : "Connect Wallet"}
       </button> */}
+      <button
+        className="bg-gray-500 text-white px-4 py-2 rounded-2xl text-lg"
+        disabled
+      >
+        Connect Wallet - coming soon
+      </button>
     </div>
   );
 }

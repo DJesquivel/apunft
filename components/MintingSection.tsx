@@ -7,7 +7,7 @@ import {
 } from "@web3modal/ethers5/react";
 import Link from "next/link";
 import { ethers } from "ethers";
-import NFT_ABI from "../contract/ABI.json";
+// import NFT_ABI from "../contract/ABI.json";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -41,50 +41,50 @@ export default function MintingSection() {
   const contractAddress = "0x0D4990aAbE3aE35524c311AC0b1571d0485F1d27";
   const collUrl = `https://testnets.opensea.io/collection/testto-2`;
 
-  const mintFunc = async () => {
-    setIsMinting(true);
-    try {
-      if (walletProvider) {
-        const provider = new ethers.providers.Web3Provider(walletProvider);
-        const signer = provider.getSigner();
-        const contract = new ethers.Contract(contractAddress, NFT_ABI, signer);
-        // Define the amount to send (in ethers)
-        const amountToSend = ethers.utils.parseEther("0");
-        const tx = await contract.batchMintNFT(address, quantity, {
-          value: amountToSend, // Include the value for the transaction
-        });
-        const result = await tx.wait();
-        console.log(result, "Result");
-        setTokenId(result?.transactionHash);
-        supply();
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsMinting(false);
-    }
-  };
+  // const mintFunc = async () => {
+  //   setIsMinting(true);
+  //   try {
+  //     if (walletProvider) {
+  //       const provider = new ethers.providers.Web3Provider(walletProvider);
+  //       const signer = provider.getSigner();
+  //       const contract = new ethers.Contract(contractAddress, NFT_ABI, signer);
+  //       // Define the amount to send (in ethers)
+  //       const amountToSend = ethers.utils.parseEther("0");
+  //       const tx = await contract.batchMintNFT(address, quantity, {
+  //         value: amountToSend, // Include the value for the transaction
+  //       });
+  //       const result = await tx.wait();
+  //       console.log(result, "Result");
+  //       setTokenId(result?.transactionHash);
+  //       supply();
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   } finally {
+  //     setIsMinting(false);
+  //   }
+  // };
 
-  const supply = async () => {
-    try {
-      if (walletProvider) {
-        const provider = new ethers.providers.Web3Provider(walletProvider);
-        const signer = provider.getSigner();
-        const contract = new ethers.Contract(contractAddress, NFT_ABI, signer);
-        const current = await contract.currentSupply();
-        setCurrentSupp(Number(current).toString());
-        const total = await contract.TOTAL_SUPPLY();
-        setTotalSupp(Number(total).toString());
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const supply = async () => {
+  //   try {
+  //     if (walletProvider) {
+  //       const provider = new ethers.providers.Web3Provider(walletProvider);
+  //       const signer = provider.getSigner();
+  //       const contract = new ethers.Contract(contractAddress, NFT_ABI, signer);
+  //       const current = await contract.currentSupply();
+  //       setCurrentSupp(Number(current).toString());
+  //       const total = await contract.TOTAL_SUPPLY();
+  //       setTotalSupp(Number(total).toString());
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    supply();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [address]);
+  // useEffect(() => {
+  //   supply();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [address]);
 
   const slides = [
     Slide1,
@@ -97,7 +97,7 @@ export default function MintingSection() {
     Slide8,
     Slide9,
     Slide10,
-    Slide11,
+    // Slide11,
     Slide12,
     Slide13,
   ];
@@ -121,24 +121,24 @@ export default function MintingSection() {
       <div className="container mx-auto mt-20 max-md:mt-10 max-w-[900px] min-w-[900px] relative max-lg:max-w-full max-lg:min-w-full px-4">
         <div className="flex justify-between gap-4 relative z-10 max-sm:flex-col">
           <div className="">
-            <p className="uppercase single-day-regular text-[48px] text-white max-sm:text-center">
+            <p className="uppercase single-day-regular text-[48px] text-white max-sm:text-center text-center sm:text-left">
               Early Access Mint
             </p>
             <div className="flex gap-4 max-sm:flex-col">
               <div className="max-sm:items-center max-sm:flex max-sm:flex-col">
-                <p className="text-[30px] single-day-regular text-white">
+                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
                   Date: Saturday 10/05
                 </p>
-                <p className="text-[30px] single-day-regular text-white">
+                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
                   Time: 12pm-4:20pm est
                 </p>
-                <p className="text-[30px] single-day-regular text-white">
+                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
                   Price: .05e
                 </p>
-                <p className="text-[30px] single-day-regular text-white">
+                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
                   Max per mint: 10
                 </p>
-                <p className="text-[30px] single-day-regular text-white">
+                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
                   No max per wallet
                 </p>
               </div>
@@ -154,24 +154,24 @@ export default function MintingSection() {
           <div className="w-[1px] bg-white shadow-lg max-sm:hidden"></div>
 
           <div className="max-sm:items-center max-sm:flex max-sm:flex-col">
-            <p className="uppercase single-day-regular text-[48px] text-white">
+            <p className="uppercase single-day-regular text-[48px] text-white text-center sm:text-left">
               Public Mint
             </p>
             <div>
               <div className="max-sm:items-center max-sm:flex max-sm:flex-col">
-                <p className="text-[30px] single-day-regular text-white">
+                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
                   Date: Saturday 10/05
                 </p>
-                <p className="text-[30px] single-day-regular text-white">
+                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
                   Time: 4:20pm est
                 </p>
-                <p className="text-[30px] single-day-regular text-white">
+                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
                   Price: .10e
                 </p>
-                <p className="text-[30px] single-day-regular text-white">
+                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
                   Max per mint: 10
                 </p>
-                <p className="text-[30px] single-day-regular text-white">
+                <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
                   No max per wallet
                 </p>
               </div>
@@ -181,7 +181,7 @@ export default function MintingSection() {
 
         <div className="h-[1px] bg-white w-full mt-10 mb-6"></div>
 
-        {/* <div className="flex justify-center items-center relative z-10 max-md:flex-col gap-8 px-4">
+        <div className="flex justify-center items-center relative z-10 max-md:flex-col gap-8 px-4">
           <div className="flex flex-col justify-center items-center my-6 gap-4">
             <p className="text-white single-day-regular text-4xl">
               {currentSup ? currentSup : "0"} / {totalSup ? totalSup : "7777"}
@@ -217,7 +217,7 @@ export default function MintingSection() {
               (ETH gas fees apply)
             </p>
             <Header />
-            {address && (
+            {/* {address && (
               <p className="bg-[#050923] text-[#00d8ff] text-xl shadow-custom-blue single-day-regular px-4 py-2 border border-[#5dccff] rounded-lg">
                 {address ? address : ""}
               </p>
@@ -258,10 +258,10 @@ export default function MintingSection() {
               >
                 {isMinting ? "Minting..." : "Mint"}
               </button>
-            )}
+            )} */}
           </div>
         </div>
-        <div className="h-[1px] bg-white w-full my-6"></div> */}
+        {/* <div className="h-[1px] bg-white w-full my-6"></div> */}
       </div>
     </div>
   );
