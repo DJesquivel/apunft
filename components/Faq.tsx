@@ -25,7 +25,7 @@ export default function Faq() {
     {
       question: "How can I mint an NFT?",
       answer:
-        "You can mint an NFT directly from this page. Ensure your digital wallet is connected and funded with the required cryptocurrency (Ethereum). Follow the minting process by clicking the `Mint`` button.",
+        "You can mint an NFT directly from this page. Ensure your digital wallet is connected and funded with the required cryptocurrency (Ethereum). Follow the minting process by clicking the `Mint` button.",
     },
     {
       question: "What will the minting price be?",
@@ -35,7 +35,13 @@ export default function Faq() {
     {
       question: "When will the minting start?",
       answer:
-        "Early Access for Whitelisted Wallets will begin Saturday 10/05 from 12pm EST and be open for 33hrs. Public Mint will begin Sunday 10/06 at 9pm EST",
+        "Early Access for Whitelisted Wallets will begin Saturday 10/05 at 12:00 PM EST and will last 33 hours. Public Mint will begin Sunday 10/06 at 9:00 PM EST.",
+    },
+
+    {
+      question: "Will there be any benefits for holding these NFTs?",
+      answer:
+        "The minting price will be .10 ETH per NFT (.05 for those on the Whitelist). Please note that gas fees, which are network transaction fees, will also apply.",
     },
     {
       question: "What happens after minting closes?",
@@ -46,11 +52,6 @@ export default function Faq() {
       question: "How do I view my NFTs?",
       answer:
         "Once you’ve minted your NFTs, you can view them in your connected digital wallet and on Opensea. Just ensure that your wallet is connected to Opensea to see your collection.",
-    },
-    {
-      question: "Will there be any benefits for holding these NFTs?",
-      answer:
-        "Yes! Holders of these NFTs may receive special perks, including exclusive access to future drops, community events, and more. Stay tuned for more details.",
     },
     {
       question: "What is Opensea?",
@@ -126,9 +127,9 @@ export default function Faq() {
                 <Image
                   src={"/images/arrowbutton.png"}
                   alt=""
-                  width={60}
-                  height={60}
-                  className={` transition-transform duration-300 ease-in-out flex-shrink-0 h-[40px] sm:h-[60px] w-[50px] sm:w-[85px] ${
+                  width={85}
+                  height={85}
+                  className={`flex-shrink-0 h-[40px] sm:h-[60px] w-[50px] sm:w-[85px] transition-transform duration-300 ease-in-out ${
                     isOpen[`answer-${index + 1}`] ? "rotate-180" : ""
                   }`}
                 />
