@@ -18,7 +18,7 @@ export default function Footer() {
         height={456}
         className="absolute right-[0%] bottom-[30%]"
       />
-      <div className=" flex flex-col justify-center items-center gap-16 absolute w-full top-[15%]">
+      <div className=" flex flex-col justify-center items-center gap-2 sm:gap-16 absolute w-full top-0 sm:top-[15%]">
         <p
           className="text-xl shadow-lg text-white sm:text-8xl"
           // style={{

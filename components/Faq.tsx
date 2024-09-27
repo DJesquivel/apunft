@@ -137,9 +137,9 @@ export default function Faq() {
                 <Image
                   src={"/images/arrowbutton.png"}
                   alt=""
-                  width={85}
-                  height={85}
-                  className={`h-[60px] w-[85px] transition-transform duration-300 ease-in-out ${
+                  width={60}
+                  height={60}
+                  className={`h-[60px] w-[60px] transition-transform duration-300 ease-in-out ${
                     isOpen[`answer-${index + 1}`] ? "rotate-180" : ""
                   }`}
                 />

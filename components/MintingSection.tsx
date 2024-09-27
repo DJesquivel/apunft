@@ -179,9 +179,9 @@ export default function MintingSection() {
           </div>
         </div>
 
-        {/* <div className="h-[1px] bg-white w-full mt-10 mb-6"></div>
+        <div className="h-[1px] bg-white w-full mt-10 mb-6"></div>
 
-        <div className="flex justify-center items-center relative z-10 max-md:flex-col gap-8 px-4">
+        {/* <div className="flex justify-center items-center relative z-10 max-md:flex-col gap-8 px-4">
           <div className="flex flex-col justify-center items-center my-6 gap-4">
             <p className="text-white single-day-regular text-4xl">
               {currentSup ? currentSup : "0"} / {totalSup ? totalSup : "7777"}
@@ -260,8 +260,8 @@ export default function MintingSection() {
               </button>
             )}
           </div>
-        </div> */}
-        <div className="h-[1px] bg-white w-full my-6"></div>
+        </div>
+        <div className="h-[1px] bg-white w-full my-6"></div> */}
       </div>
     </div>
   );
