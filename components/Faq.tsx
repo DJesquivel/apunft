@@ -35,18 +35,7 @@ export default function Faq() {
     {
       question: "When will the minting start?",
       answer:
-        "Early Access for Whitelisted Wallets will begin Saturday 10/05 from 12pm-4:20pm EST.Public Mint will begin Saturday 10/05 at 4:20pm EST",
-    },
-
-    {
-      question: "Will there be any benefits for holding these NFTs?",
-      answer:
-        "The minting price will be .10 ETH per NFT (.05 for those on the Whitelist). Please note that gas fees, which are network transaction fees, will also apply.",
-    },
-    {
-      question: "When will the minting start?",
-      answer:
-        "Early Access for Whitelisted Wallets will begin Saturday 10/05 from 12pm-4:20pm EST. Public Mint will begin Saturday 10/05 at 4:20pm EST",
+        "Early Access for Whitelisted Wallets will begin Saturday 10/05 from 12pm EST and be open for 33hrs. Public Mint will begin Sunday 10/06 at 9pm EST",
     },
     {
       question: "What happens after minting closes?",
