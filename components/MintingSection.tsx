@@ -130,7 +130,7 @@ export default function MintingSection() {
                   Date: Saturday 10/05
                 </p>
                 <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
-                  Time: 12pm-4:20pm est
+                  Time: 12pm est
                 </p>
                 <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
                   Price: .05e
@@ -160,10 +160,10 @@ export default function MintingSection() {
             <div>
               <div className="max-sm:items-center max-sm:flex max-sm:flex-col">
                 <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
-                  Date: Saturday 10/05
+                  Date: Sunday 10/06
                 </p>
                 <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
-                  Time: 4:20pm est
+                  Time: 9pm est
                 </p>
                 <p className="text-[30px] single-day-regular text-white text-center sm:text-left">
                   Price: .10e
