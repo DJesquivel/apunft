@@ -13,7 +13,7 @@ const TokenTable = () => {
     try {
       const holding = await checkWalletHoldings(walletAddress);
 
-      const holdingsArray = Object.entries(holding).map(
+      const holdingsArray = Object.entries(holding as object).map(
         ([tokenName, details]) => ({
           tokenName,
           ...details,
