@@ -62,7 +62,6 @@
 
 // SPDX-License-Identifier: MIT
 // Compatible with OpenZeppelin Contracts ^5.0.0
-
 // SPDX-License-Identifier: MIT
 // Compatible with OpenZeppelin Contracts ^5.0.0
 pragma solidity ^0.8.20;
@@ -78,12 +77,16 @@ contract APU is ERC721, ERC2981, Ownable {
     uint256 public currentSupply = 0;
     string private _baseURL;
     address public royaltiesReceiver;
-    uint96 public constant ROYALTIES_PERCENTAGE = 500; // 5% (500 basis points)
+    uint96 public royaltyPercentage; // Dynamic royalty percentage (in basis points)
+
+    // Event to log base URL changes
+    event BaseURLChanged(string oldBaseURL, string newBaseURL);
 
     constructor() ERC721("APU", "APU") Ownable(msg.sender) {
-        _baseURL = "ipfs://QmU4dtKcDo7tPtfxxyhyBLdge7KaoxDbHkVrMyU4DmrEAd/";
-        royaltiesReceiver = 0x733D127CA66320Ea77F9223C578C91927DA5AE54;
-        _setDefaultRoyalty(royaltiesReceiver, ROYALTIES_PERCENTAGE);
+        _baseURL = "ipfs://QmQWeg6pkdgPJWHqXiPzRhVHgosK64DP5SkuuHaitdBmCP/";
+        royaltiesReceiver = 0xcd970863cB05d353c68C1076A75E82C6E52C3205;
+        royaltyPercentage = 777; // 7.77% in basis points
+        _setDefaultRoyalty(royaltiesReceiver, royaltyPercentage);
     }
 
     // Base URI for token metadata
@@ -93,6 +96,7 @@ contract APU is ERC721, ERC2981, Ownable {
 
     // Owner can set a new base URL
     function setBaseURL(string memory newBaseURL) public onlyOwner {
+        emit BaseURLChanged(_baseURL, newBaseURL);
         _baseURL = newBaseURL;
     }
 
@@ -164,7 +168,18 @@ contract APU is ERC721, ERC2981, Ownable {
         royaltiesReceiver = newRoyaltiesReceiver;
 
         // Update the default royalty information
-        _setDefaultRoyalty(newRoyaltiesReceiver, ROYALTIES_PERCENTAGE);
+        _setDefaultRoyalty(newRoyaltiesReceiver, royaltyPercentage);
+    }
+
+    // Function to update the royalty percentage dynamically
+    function setRoyaltyPercentage(uint96 newRoyaltyPercentage) external onlyOwner {
+        require(newRoyaltyPercentage <= 1000, "Max royalty is 10%"); // Limit to 10% (1000 basis points)
+
+        // Update the royalty percentage
+        royaltyPercentage = newRoyaltyPercentage;
+
+        // Update the default royalty information
+        _setDefaultRoyalty(royaltiesReceiver, royaltyPercentage);
     }
 
     // Override for royalty support (ERC2981)
