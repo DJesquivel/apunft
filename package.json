@@ -11,6 +11,8 @@
   "dependencies": {
     "@web3modal/ethers5": "^5.1.2",
     "alchemy-sdk": "^3.4.2",
+    "antd": "^5.21.2",
+    "arweave": "^1.15.5",
     "ethers": "^5.7.2",
     "next": "14.2.6",
     "react": "^18",

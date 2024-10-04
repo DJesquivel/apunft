@@ -145,16 +145,22 @@ export default function MintingSection() {
                   Duration: 33 Hours
                 </p>
               </div>
-              {/* <div className="max-w-[200px] max-sm:items-center max-sm:flex max-sm:flex-col max-sm:max-w-full">
+              <div className="max-w-[200px] max-sm:items-center max-sm:flex max-sm:flex-col max-sm:max-w-full">
                 <p className="text-[30px] single-day-regular text-white">
                   . All $APU holders will receive early access, Snapshot: 8/29 @
                   12pm est
                 </p>
-              </div> */}
+              </div>
             </div>
           </div>
 
-          <div className="w-[1px] bg-white shadow-lg max-sm:hidden"></div>
+          <div
+            className="w-[1px] bg-white shadow-lg max-sm:hidden "
+            style={{
+              boxShadow:
+                "0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #3D71FA, 0 0 30px #3D71FA, 0 0 40px #3D71FA, 0 0 50px #3D71FA, 0 0 60px #3D71FA",
+            }}
+          ></div>
 
           <div className="max-sm:items-center max-sm:flex max-sm:flex-col">
             <p className="uppercase single-day-regular text-[48px] text-white">
@@ -182,7 +188,13 @@ export default function MintingSection() {
           </div>
         </div>
 
-        <div className="h-[1px] bg-white w-full mt-10 mb-6"></div>
+        <div
+          className="h-[1px] bg-white w-full mt-10 mb-6"
+          style={{
+            boxShadow:
+              "0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #3D71FA, 0 0 30px #3D71FA, 0 0 40px #3D71FA, 0 0 50px #3D71FA, 0 0 60px #3D71FA",
+          }}
+        ></div>
 
         <div className="flex justify-center items-center relative z-10 max-md:flex-col gap-8 px-4">
           <div className="flex flex-col justify-center items-center my-6 gap-4">
@@ -262,10 +274,15 @@ export default function MintingSection() {
                 {isMinting ? "Minting..." : "Mint"}
               </button>
             )}  */}
-
           </div>
         </div>
-        <div className="h-[1px] bg-white w-full my-6"></div>
+        <div
+          className="h-[1px] bg-white w-full my-6"
+          style={{
+            boxShadow:
+              "0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #3D71FA, 0 0 30px #3D71FA, 0 0 40px #3D71FA, 0 0 50px #3D71FA, 0 0 60px #3D71FA",
+          }}
+        ></div>
       </div>
     </div>
   );

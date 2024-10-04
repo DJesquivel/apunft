@@ -1,12 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { checkWalletHoldings } from "./utils/checkWalletHoldings";
 import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
+import { uploadNFT } from "./utils/Arweave";
+import { walletKey } from "./utils/walletkey";
+import { Button } from "antd";
+import TransactionNotification from "./utils/TransactionNotification";
+import Loader from "./utils/Loader";
 
 const TokenTable = () => {
   const { address: connectedAddress, isConnected } = useWeb3ModalAccount();
   const [address, setAddress] = useState<string>(connectedAddress || ""); // State for the wallet address input
   const [holdings, setHoldings] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(false); // Loading state
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [loading2, setLoading2] = useState(false);
+  const [metadata, setMetadata] = useState({
+    name: "My NFT",
+    description: "This is my first NFT!",
+  });
 
   const fetchHoldings = async (walletAddress: string) => {
     setLoading(true); // Start loading
@@ -43,6 +54,53 @@ const TokenTable = () => {
       fetchHoldings(address);
     }
   };
+
+  // Handle image file selection
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setImageFile(event.target.files[0]);
+    }
+  };
+
+  const handleUpload = async () => {
+    if (!imageFile) {
+      console.log("No image file selected");
+      return;
+    }
+
+    // Read image file as Buffer
+    const imageBuffer = await imageFile.arrayBuffer();
+
+    try {
+      const metadataTransactionId = await uploadNFT(
+        Buffer.from(imageBuffer),
+        metadata,
+        walletKey
+      );
+      console.log(
+        "NFT uploaded successfully! Metadata transaction ID:",
+        metadataTransactionId
+      );
+    } catch (error) {
+      console.error("Error uploading NFT:", error);
+    }
+  };
+
+  const handleTransactionProcessing = () => {
+    setLoading2(true);
+
+    setTimeout(() => {
+      setLoading2(false);
+      notifyTransactionSuccess();
+    }, 2000);
+  };
+
+  const {
+    notifyTransactionSubmitted,
+    notifyTransactionProcessing,
+    notifyTransactionSuccess,
+    notifyTransactionFailed,
+  } = TransactionNotification();
 
   return (
     <div className="flex flex-col justify-center items-center p-6 min-h-screen space-y-4">
@@ -109,6 +167,35 @@ const TokenTable = () => {
             )}
           </tbody>
         </table>
+        {/* <div>
+          <h1>Upload NFT</h1>
+          <input type="file" accept="image/*" onChange={handleImageChange} />
+          <button onClick={handleUpload}>Upload NFT</button>
+        </div> */}
+        <div className=" mt-10 flex justify-between item-center p-4">
+          <Button type="primary" onClick={notifyTransactionSubmitted}>
+            Transaction Submitted Successfully
+          </Button>
+          <Button
+            type="default"
+            onClick={handleTransactionProcessing}
+            disabled={loading} // Disable button while loading
+            className="p-3"
+          >
+            {loading2 ? (
+              <Loader loading={loading2} size="default" />
+            ) : (
+              "Transaction Processing"
+            )}
+          </Button>
+
+          <Button type="dashed" onClick={notifyTransactionSuccess}>
+            Transaction Success
+          </Button>
+          <Button type="default" onClick={notifyTransactionFailed}>
+            Transaction Failed
+          </Button>
+        </div>
       </div>
     </div>
   );
