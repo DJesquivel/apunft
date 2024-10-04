@@ -219,7 +219,7 @@ export default function MintingSection() {
               (ETH gas fees apply)
             </p>
             <Header />
-            {address && (
+            {/* {address && (
               <p className="bg-[#050923] text-[#00d8ff] text-xl shadow-custom-blue single-day-regular px-4 py-2 border border-[#5dccff] rounded-lg">
                 {address ? address : ""}
               </p>
@@ -260,7 +260,7 @@ export default function MintingSection() {
               >
                 {isMinting ? "Minting..." : "Mint"}
               </button>
-            )}
+            )} */}
           </div>
         </div>
         <div className="h-[1px] bg-white w-full my-6"></div>
