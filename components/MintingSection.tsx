@@ -7,7 +7,7 @@ import {
 } from "@web3modal/ethers5/react";
 import Link from "next/link";
 import { ethers } from "ethers";
-import NFT_ABI from "../contract/ABI.json";
+// import NFT_ABI from "../contract/ABI.json";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -37,53 +37,54 @@ export default function MintingSection() {
   const [totalSup, setTotalSupp] = useState<string>("");
   const [isMinting, setIsMinting] = useState<boolean>(false);
 
-  const contractAddress = "0x39fefC6127E8478C591a3e5771110ffa6b21c28c";
+  //   const contractAddress = "";
+  const contractAddress = "";
   const collUrl = ``;
 
-  const mintFunc = async () => {
-    setIsMinting(true);
-    try {
-      if (walletProvider) {
-        const provider = new ethers.providers.Web3Provider(walletProvider);
-        const signer = provider.getSigner();
-        const contract = new ethers.Contract(contractAddress, NFT_ABI, signer);
-        // Define the amount to send (in ethers)
-        const amountToSend = ethers.utils.parseEther("0");
-        const tx = await contract.batchMintNFT(address, quantity, {
-          value: amountToSend, // Include the value for the transaction
-        });
-        const result = await tx.wait();
-        console.log(result, "Result");
-        setTokenId(result?.transactionHash);
-        supply();
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsMinting(false);
-    }
-  };
+  // const mintFunc = async () => {
+  //   setIsMinting(true);
+  //   try {
+  //     if (walletProvider) {
+  //       const provider = new ethers.providers.Web3Provider(walletProvider);
+  //       const signer = provider.getSigner();
+  //       const contract = new ethers.Contract(contractAddress, NFT_ABI, signer);
+  //       // Define the amount to send (in ethers)
+  //       const amountToSend = ethers.utils.parseEther("0");
+  //       const tx = await contract.batchMintNFT(address, quantity, {
+  //         value: amountToSend, // Include the value for the transaction
+  //       });
+  //       const result = await tx.wait();
+  //       console.log(result, "Result");
+  //       setTokenId(result?.transactionHash);
+  //       supply();
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   } finally {
+  //     setIsMinting(false);
+  //   }
+  // };
 
-  const supply = async () => {
-    try {
-      if (walletProvider) {
-        const provider = new ethers.providers.Web3Provider(walletProvider);
-        const signer = provider.getSigner();
-        const contract = new ethers.Contract(contractAddress, NFT_ABI, signer);
-        const current = await contract.currentSupply();
-        setCurrentSupp(Number(current).toString());
-        const total = await contract.TOTAL_SUPPLY();
-        setTotalSupp(Number(total).toString());
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const supply = async () => {
+  //   try {
+  //     if (walletProvider) {
+  //       const provider = new ethers.providers.Web3Provider(walletProvider);
+  //       const signer = provider.getSigner();
+  //       const contract = new ethers.Contract(contractAddress, NFT_ABI, signer);
+  //       const current = await contract.currentSupply();
+  //       setCurrentSupp(Number(current).toString());
+  //       const total = await contract.TOTAL_SUPPLY();
+  //       setTotalSupp(Number(total).toString());
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    supply();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [address]);
+  // useEffect(() => {
+  //   supply();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [address]);
 
   const slides = [
     Slide1,
@@ -260,7 +261,8 @@ export default function MintingSection() {
               >
                 {isMinting ? "Minting..." : "Mint"}
               </button>
-            )} */}
+            )}  */}
+
           </div>
         </div>
         <div className="h-[1px] bg-white w-full my-6"></div>

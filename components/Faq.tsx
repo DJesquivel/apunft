@@ -33,6 +33,11 @@ export default function Faq() {
         "The minting price will be .10 ETH per NFT (.05 for those on the Whitelist). Please note that gas fees, which are network transaction fees, will also apply.",
     },
     {
+      question: "How do I qualify for the Early Access Mint?",
+      answer:
+        "Hold at least 1 $APU token to get early access",
+    },
+    {
       question: "When will the minting start?",
       answer:
         "Early Access for Whitelisted Wallets will begin Saturday 10/05 at 12:00 PM EST and will last 33 hours. Public Mint will begin Sunday 10/06 at 9:00 PM EST.",
@@ -41,7 +46,7 @@ export default function Faq() {
     {
       question: "Will there be any benefits for holding these NFTs?",
       answer:
-        "The minting price will be .10 ETH per NFT (.05 for those on the Whitelist). Please note that gas fees, which are network transaction fees, will also apply.",
+        "Holders of these NFTs may receive special perks, including exclusive access to future drops, community events, and more. Stay tuned for more details.",
     },
     {
       question: "What happens after minting closes?",
